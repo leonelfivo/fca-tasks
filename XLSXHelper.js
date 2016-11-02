@@ -66,7 +66,7 @@ exports.generate = function(stream) {
 	    		attachments: []
 	    	};
 
-        	//MailHelper.send(mailParams);
+        	MailHelper.send(mailParams);
 	        MailHelper.send(mailNotificationParams);		    
 
 	    });
