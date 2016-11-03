@@ -13,7 +13,7 @@ cronRule.minute = 0;
 
 // Initialize Task
 Cron.scheduleJob(cronRule, function(){
-	console.log('Starting proccess!');	
+	console.log('-> Starting new export proccess.');	
 	// Execute query, generate report and send Email
 	Database.getStream(theQuery(), function(err,stream) {	
 		if(!err) {
@@ -36,4 +36,3 @@ function theQuery() {
 	+ "inner join brands b on b.ID=dsb.BRAND_ID "
 	+ "order by dfv.DAILY_FLOW_DATE desc";
 }
-
