@@ -2,18 +2,18 @@
 * DEPENDENCES
 */
 var Cron 		= require('node-schedule');
-var Database 	= require('./OracleConnectorHelper.js');
-var XLSX 		= require('./XLSXHelper.js');
+var Database 	= require('./helpers/OracleConnectorHelper.js');
+var XLSX 		= require('./helpers/XLSXHelper.js');
 
 // Cron configurations
 var cronRule = new Cron.RecurrenceRule();
-cronRule.dayOfWeek = [1,2,5];
-cronRule.hour = 17;
-cronRule.minute = 27;
+cronRule.dayOfWeek = [1,5];
+cronRule.hour = 6;
+cronRule.minute = 0;
 
 // Initialize Task
 Cron.scheduleJob(cronRule, function(){
-	console.log('Start generate process!');	
+	console.log('Starting proccess!');	
 	// Execute query, generate report and send Email
 	Database.getStream(theQuery(), function(err,stream) {	
 		if(!err) {

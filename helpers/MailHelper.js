@@ -2,7 +2,6 @@
 * DEPENDENCES
 */
 var PropertiesReader = require('properties-reader');
-
 var properties = PropertiesReader('./properties/properties.file');
 
 // Mail Server Configurations
@@ -15,7 +14,6 @@ var mailOptions = {
     }
 };
 
-// Node Modules
 var NodeMailer = require('nodemailer');
 var transporter = NodeMailer.createTransport(mailOptions);
 
@@ -25,6 +23,8 @@ exports.send = function(params) {
 	transporter.sendMail({
 	    from: mailOptions.auth.user,
 	    to: params.to,
+	    cc: params.cc,
+	    bcc: params.bcc,
 	    subject: params.subject,
 	    html: params.message,
 	    attachments: params.attachments
