@@ -2,8 +2,8 @@
 * DEPENDENCES
 */
 var Cron 		= require('node-schedule');
-var Database 	= require('./helpers/OracleConnectorHelper.js');
-var XLSX 		= require('./helpers/XLSXHelper.js');
+var Database 	= require('./services/OracleConnectorHelper.js');
+var XLSX 		= require('./services/XLSXHelper.js');
 
 // Cron configurations
 var cronRule = new Cron.RecurrenceRule();
