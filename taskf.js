@@ -8,7 +8,7 @@ var XLSX 		= require('./services/XLSXHelper.js');
 // Cron configurations
 var cronRule = new Cron.RecurrenceRule();
 cronRule.dayOfWeek = [1,5];
-cronRule.hour = 6;
+cronRule.hour = 5;
 cronRule.minute = 0;
 
 // Initialize Task
