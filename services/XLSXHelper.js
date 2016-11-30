@@ -1,4 +1,5 @@
 var XLSXWriter 			= require('xlsx-writestream');
+var fs 			= require('fs');
 var MailHelper 			= require('./MailHelper.js');
 var S3Service 			= require('./S3FileService.js');
 var PropertiesReader 	= require('properties-reader');
