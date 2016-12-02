@@ -29,9 +29,11 @@ exports.generate = function(stream) {
 	var writer = new XLSXWriter("./exports/"+currentFileName, {});
 	writer.getReadStream().pipe(fs.createWriteStream("./exports/"+currentFileName));	
 
+	console.log("./exports/"+currentFileName + " criado.");
+
 	// Create Header based in metadata
 	stream.on('metadata', function (metadata) {		
-		console.log("Escrevendo no arquivo...");
+		console.log("Iniciando escrita no arquivo...");
 		
 		var head = [];
 		metadata.forEach(function(element, index, array) {
@@ -50,6 +52,7 @@ exports.generate = function(stream) {
 
 		// Finalize file writer
 		writer.finalize();
+		console.log("Escrita concluída.");
 		
 		// Prepare emails
 
@@ -83,9 +86,9 @@ exports.generate = function(stream) {
 	    	};
 
 	    	// Send email
-	    	MailHelper.send(mailParams);
-	        MailHelper.send(mailNotificationParams);
-    	});    			    
+	    	//MailHelper.send(mailParams);
+	        //MailHelper.send(mailNotificationParams);
+    	});			    
 
     });
 

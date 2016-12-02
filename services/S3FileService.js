@@ -14,7 +14,7 @@ var s3Path = properties.get('aws.s3.path');
 
 exports.startUpload = function(localFile, onDone) {
 
-  console.log("upload process start.");  
+  console.log("upload process start...");  
 
   var s3Client = createClient();
 
