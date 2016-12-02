@@ -33,7 +33,7 @@ exports.generate = function(stream) {
 
 	// Create Header based in metadata
 	stream.on('metadata', function (metadata) {		
-		console.log("Iniciando escrita no arquivo...");
+		console.log("Escrevendo no arquivo...");
 		
 		var head = [];
 		metadata.forEach(function(element, index, array) {
