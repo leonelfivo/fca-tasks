@@ -1,4 +1,4 @@
-var S3Service 			= require('./services/S3FileService.js');
+var S3Service 			= require('./services/S3UploadService.js');
 var PropertiesReader 	= require('properties-reader');
 var s3 					= require('s3');
 var PropertiesReader 	= require('properties-reader');
