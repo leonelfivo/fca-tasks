@@ -86,8 +86,8 @@ exports.generate = function(stream) {
 	    	};
 
 	    	// Send email
-	    	//MailHelper.send(mailParams);
-	        //MailHelper.send(mailNotificationParams);
+	    	MailHelper.send(mailParams);
+	        MailHelper.send(mailNotificationParams);
     	});			    
 
     });
