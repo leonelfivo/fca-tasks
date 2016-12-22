@@ -96,7 +96,7 @@ exports.generate = function(stream) {
 
 function generateFileName() {
 	var date = new Date();    
-	var fileName = "test-fcadealerinfo-database-{versionid}.xlsx";
+	var fileName = "fcadealerinfo-database-{versionid}.xlsx";
 	var versionid = date.getDate() + "" + (date.getMonth() + 1) + "" + date.getFullYear();
 	return fileName.replace("{versionid}", versionid);
 }
