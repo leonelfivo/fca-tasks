@@ -1,5 +1,5 @@
 var XLSXWriter 			= require('xlsx-writestream');
-var fs 			= require('fs');
+var fs 					= require('fs');
 var MailHelper 			= require('./MailHelper.js');
 var S3Service 			= require('./S3UploadStreamService.js');
 var PropertiesReader 	= require('properties-reader');
@@ -64,32 +64,31 @@ exports.generate = function(stream) {
     		}
     	];*/
 
-    	S3Service.startUpload("./exports/"+currentFileName, function(fileUrl) {    		
-    		// Attachment Email params
-	    	var mailParams = {
-	    		from: properties.get('mail.send.from'),
-	    		to: properties.get('mail.send.to'), 
-	    		cc: properties.get('mail.send.cc'), 
-	    		bcc: properties.get('mail.send.bcc'), 
-	    		subject: "Base de Dados FCA Dealer " + getCurrentDate(), 
-	    		message: getEmailTemplate(fileUrl), 
-	    		attachments: []
-	    	};
+    	var downloadUrl = getDownloadUrl(currentFileName);
 
-	    	// Notification Email params
-	    	var mailNotificationParams = {
-	    		from: properties.get('mail.send.from'),
-	    		to: properties.get('mail.notification.to'),
-	    		subject: mailSubject, 
-	    		message: mailMessage, 
-	    		attachments: []
-	    	};
+    	// Attachment Email params
+	    var mailParams = {
+	    	from: properties.get('mail.send.from'),
+	    	to: properties.get('mail.send.to'), 
+	    	cc: properties.get('mail.send.cc'), 
+	    	bcc: properties.get('mail.send.bcc'), 
+	    	subject: "Base de Dados FCA Dealer " + getCurrentDate(), 
+	    	message: getEmailTemplate(downloadUrl), 
+	    	attachments: []
+	    };
 
-	    	// Send email
-	    	MailHelper.send(mailParams);
-	        MailHelper.send(mailNotificationParams);
-    	});			    
+	    // Notification Email params
+	    var mailNotificationParams = {
+	    	from: properties.get('mail.send.from'),
+	    	to: properties.get('mail.notification.to'),
+	    	subject: mailSubject, 
+	    	message: mailMessage, 
+	    	attachments: []
+	    };
 
+	    // Send email
+	    MailHelper.send(mailParams);
+	    MailHelper.send(mailNotificationParams);	    
     });
 
 };
@@ -116,4 +115,8 @@ function getEmailTemplate(fileUrl) {
 	"<p>Equipe FCA.</p>";
 
 	return tenplate;
+}
+
+function getDownloadUrl(fileName) {
+	return "http://ec2-54-203-105-147.us-west-2.compute.amazonaws.com:3000/download/"+fileName;		
 }

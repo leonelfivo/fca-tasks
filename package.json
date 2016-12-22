@@ -6,6 +6,7 @@
   "dependencies": {
     "aws-sdk": "^2.7.18",
     "crypto": "0.0.3",
+    "express": "^4.14.0",
     "mkdirp": "^0.5.1",
     "node-cron": "^1.1.2",
     "node-schedule": "^1.2.0",
