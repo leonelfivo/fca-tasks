@@ -1,7 +1,7 @@
 var XLSXWriter 			= require('xlsx-writestream');
 var fs 			= require('fs');
 var MailHelper 			= require('./MailHelper.js');
-var S3Service 			= require('./S3UploadService.js');
+var S3Service 			= require('./S3UploadStreamService.js');
 var PropertiesReader 	= require('properties-reader');
 
 var properties = PropertiesReader('./properties/properties.file');
@@ -14,7 +14,7 @@ exports.generate = function(stream) {
 
 	// Default message text
 	var mailSubject = "Task Info: OK!";
-	var	mailMessage = "<p>O relatório foi gerado e enviado com sucesso!";		
+	var	mailMessage = "<p>O relatório foi gerado e enviado com sucesso!";
 
 	// Verify possibles error and toggle success message to error message
 	stream.on('error', function (err) {		    	
@@ -96,7 +96,7 @@ exports.generate = function(stream) {
 
 function generateFileName() {
 	var date = new Date();    
-	var fileName = "fcadealerinfo-database-{versionid}.xlsx";
+	var fileName = "test-fcadealerinfo-database-{versionid}.xlsx";
 	var versionid = date.getDate() + "" + (date.getMonth() + 1) + "" + date.getFullYear();
 	return fileName.replace("{versionid}", versionid);
 }

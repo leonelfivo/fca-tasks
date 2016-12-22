@@ -45,9 +45,11 @@ exports.startUpload = function(localFile, onDone) {
     });
 
     uploader.on('progress', function() {
+
         var amountDone = uploader.progressAmount;
         var amountTotal = uploader.progressTotal;
-        var progress = (amountDone * 100) / amountTotal;        
+        var progress = (amountDone * 100) / amountTotal;   
+
         console.log("Uploading ", Math.round(progress) + "%");        
     });
 
