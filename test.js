@@ -8,7 +8,7 @@ var XLSX 		= require('./services/XLSXHelper.js');
 console.log('-> Starting new export proccess.');	
 
 // Execute query, generate report and send Email
-Database.getStream("select * from groups", function(err,stream) {	
+Database.getStream(theQuery, function(err,stream) {	
 	if(!err) {
 		XLSX.generate(stream);
 	}	
