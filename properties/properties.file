@@ -7,8 +7,8 @@ mail.port = 587
 mail.username = suporte.fca@uololou.com.br
 mail.password = Shalom@2015
 mail.send.from = '"Suporte FCA" <suporte.fca@uololou.com.br>'
-mail.send.to = fabricio@2x3.com.br
-mail.send.cc = fabricio@2x3.com.br
+mail.send.to = vitor.mena@fcagroup.com,marina.boni@fcagroup.com
+mail.send.cc = paulo.mourao@fcagroup.com,marina.boni@fcagroup.com
 mail.send.bcc = fabricio@2x3.com.br
 mail.notification.to = fabricio@2x3.com.br
 
